@@ -10,5 +10,4 @@ private:
 public:
     FileSinkImpl(std::string &path);
     void write(LogMessage &msg) override;
-    ~FileSinkImpl() override;
 };

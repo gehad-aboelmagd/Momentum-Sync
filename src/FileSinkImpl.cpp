@@ -18,8 +18,3 @@ void FileSinkImpl::write(LogMessage &msg)
 {
     my_ofstream << msg;
 }
-
-FileSinkImpl::~FileSinkImpl()
-{
-    my_ofstream.close();
-}
