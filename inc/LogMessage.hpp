@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOG_MESSAGE_HPP_
+#define LOG_MESSAGE_HPP_
 
 #include <string>
 #include <cstdint>
@@ -23,3 +24,5 @@ public:
     LogMessage(std::string app_name, std::string context, uint8_t value);
     friend std::ostream &operator <<(std::ostream &outstream, const LogMessage &msg);
 };
+
+#endif // LOG_MESSAGE_HPP_

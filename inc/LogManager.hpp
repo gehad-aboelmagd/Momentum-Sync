@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOG_MANAGER_HPP_
+#define LOG_MANAGER_HPP_
 
 #include <vector>
 #include <memory>
@@ -13,3 +14,5 @@ public:
     void addSink(std::unique_ptr<ILogSink> sink);
     void writeToAll(LogMessage &msg);
 };
+
+#endif // LOG_MANAGER_HPP_

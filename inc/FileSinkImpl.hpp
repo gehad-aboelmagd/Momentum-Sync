@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FILE_SINK_IMPL_HPP_
+#define FILE_SINK_IMPL_HPP_
 
 #include <fstream>
 #include "ILogSink.hpp"
@@ -11,3 +12,5 @@ public:
     FileSinkImpl(std::string &path);
     void write(LogMessage &msg) override;
 };
+
+#endif // FILE_SINK_IMPL_HPP_

@@ -1,3 +1,6 @@
+#ifndef SAFE_FILE_H_
+#define SAFE_FILE_H_
+
 #include <iostream>
 #include <string>
 #include <optional>
@@ -26,3 +29,5 @@ public:
     
     ~SafeFile();
 };
+
+#endif // SAFE_FILE_H_
