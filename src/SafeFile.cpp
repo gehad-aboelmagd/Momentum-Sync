@@ -31,22 +31,17 @@ std::optional<std::string> SafeFile::readFile()
         return std::nullopt;
     }
 
-    int size = lseek(fd, 0, SEEK_END);
-    if(size == -1)
-    {
-        return std::nullopt;
-    }
-
-    if(lseek(fd, 0, SEEK_SET) == -1)
-    {
-        return std::nullopt;
-    }
-
     std::string buff;
-    buff.resize(size);
-    if(read(fd, (void *)buff.c_str(), size) == -1)
+
+    char c = '\0';
+    while(c != '\n')
     {
-        return std::nullopt;
+        if(read(fd, (void *)&c, 1) == -1)
+        {
+            return std::nullopt;
+        }
+        
+        buff.append(std::initializer_list<char>{c});
     }
 
     return buff;
