@@ -1,5 +1,5 @@
-#ifndef LOG_FORMATTER_HPP_
-#define LOG_FORMATTER_HPP_
+#ifndef CONSOLE_SINK_IMPL_HPP_
+#define CONSOLE_SINK_IMPL_HPP_
 
 #include <ostream>
 #include "ILogSink.hpp"
@@ -13,4 +13,4 @@ public:
     void write(LogMessage &msg) override;
 };
 
-#endif // LOG_FORMATTER_HPP_
+#endif // CONSOLE_SINK_IMPL_HPP_
