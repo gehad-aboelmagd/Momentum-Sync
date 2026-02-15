@@ -37,10 +37,20 @@ public:
 
         return *this;
     }
+
+    std::optional<T> & operator[](int index)
+    {
+        return buffer[index];
+    }
+
+    int getSize()
+    {
+        return capacity;
+    }
     
     void tryPush(T value)
     {
-        buffer[counter] = value;
+        buffer[counter] = std::move(value);
         counter = (counter + 1) % capacity;
     }
 
