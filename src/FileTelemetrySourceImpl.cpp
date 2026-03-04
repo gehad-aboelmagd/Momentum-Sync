@@ -1,7 +1,8 @@
 #include "FileTelemetrySourceImpl.hpp"
 
+FileTelemetrySourceImpl::FileTelemetrySourceImpl(std::string &path): path(path){}
 
-bool FileTelemetrySourceImpl::openSource(std::string &path)
+bool FileTelemetrySourceImpl::openSource()
 {
     file.reset(new SafeFile(path));
     if(file->getState() == -1)

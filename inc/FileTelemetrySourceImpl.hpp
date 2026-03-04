@@ -9,8 +9,10 @@ class FileTelemetrySourceImpl: public ITelemetrySource
 {
 private:
     std::unique_ptr<SafeFile> file = nullptr;
+    std::string path;
 public:
-    bool openSource(std::string &path) override;
+    FileTelemetrySourceImpl(std::string &path);
+    bool openSource() override;
     bool readSource(std::string &out) override;
 };
 
