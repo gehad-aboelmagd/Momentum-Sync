@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <atomic>
@@ -6,6 +7,9 @@
 #define SERVICE_ID  0x1234
 #define INSTANCE_ID 0x5678
 #define METHOD_ID   0x0421
+
+#define MIN_VALUE   0
+#define MAX_VALUE   100
 
 class SomeIPServer
 {
@@ -45,6 +49,7 @@ public:
 
     void on_message(const std::shared_ptr<vsomeip::message> &request)
     {
+        percentage_load = MIN_VALUE + rand()%(MAX_VALUE-MIN_VALUE+1);
         std::vector<vsomeip::byte_t> data{percentage_load};
         std::shared_ptr<vsomeip::payload> payload = runtime_->create_payload(data);
         

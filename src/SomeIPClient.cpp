@@ -72,14 +72,19 @@ void SomeIPClient::on_message(const std::shared_ptr<vsomeip::message> &response)
     std::cout << "Received load: " << static_cast<int>(load_percentage_)<< std::endl;
 }
 
+std::string SomeIPClient::get_load_percentage()
+{
+    return std::string(1, load_percentage_);
+}
+
 SomeIPClient::~SomeIPClient()
 {
     if(app_)
     {
-        // if(request_thread_.joinable())
-        // {
-        //     request_thread_.join();
-        // }
+        if(request_thread_.joinable())
+        {
+            request_thread_.join();
+        }
         app_->stop();
     }
 }
