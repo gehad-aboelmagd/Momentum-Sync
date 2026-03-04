@@ -32,6 +32,8 @@ public:
 
     void on_message(const std::shared_ptr<vsomeip::message> &response);
 
+    std::string get_load_percentage();
+
     ~SomeIPClient();
 };
 

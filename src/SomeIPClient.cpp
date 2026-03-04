@@ -34,11 +34,11 @@ SomeIPClient::SomeIPClient()
         }            
     );
     app_->request_service(SERVICE_ID, INSTANCE_ID);
-    request_thread_ = std::thread(&SomeIPClient::send_request, this);
 }
 
 void SomeIPClient::start()
 {
+    request_thread_ = std::thread(&SomeIPClient::send_request, this);
     app_->start();
 }
 
